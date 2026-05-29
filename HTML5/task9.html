@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation for Event Mapping</title>
+</head>
+<body>
+    <h1>Find Nearby Events</h1>
+
+    <button onclick="findNearbyEvents()">Find Nearby Events</button>
+
+    <p id="locationResult"></p>
+
+    <script>
+        function findNearbyEvents() {
+            const locationResult = document.getElementById("locationResult");
+
+            if (navigator.geolocation) {
+                locationResult.innerHTML = "Finding your location...";
+
+                navigator.geolocation.getCurrentPosition(
+                    showPosition,
+                    showError,
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                locationResult.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            document.getElementById("locationResult").innerHTML =
+                "Latitude: " + latitude + "<br>" +
+                "Longitude: " + longitude;
+        }
+
+        function showError(error) {
+            const locationResult = document.getElementById("locationResult");
+
+            if (error.code === error.PERMISSION_DENIED) {
+                locationResult.innerHTML = "Permission denied. Please allow location access.";
+            } else if (error.code === error.TIMEOUT) {
+                locationResult.innerHTML = "Location request timed out. Please try again.";
+            } else if (error.code === error.POSITION_UNAVAILABLE) {
+                locationResult.innerHTML = "Location information is unavailable.";
+            } else {
+                locationResult.innerHTML = "An unknown error occurred.";
+            }
+        }
+    </script>
+</body>
+</html>
