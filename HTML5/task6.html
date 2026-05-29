@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 560px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 25px;
+            border: 1px solid #d8e0e3;
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #284b63;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #b8c2c6;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #2f6f73;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #24575a;
+        }
+
+        img {
+            display: block;
+            width: 220px;
+            height: 140px;
+            object-fit: cover;
+            margin: 20px auto 8px;
+            border-radius: 8px;
+            border: 2px solid #d8e0e3;
+            cursor: pointer;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        img.enlarged {
+            width: 100%;
+            height: 260px;
+        }
+
+        .hint {
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .message {
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .error {
+            color: #b00020;
+        }
+
+        .success {
+            color: #256029;
+        }
+
+        #confirmationMessage {
+            display: none;
+            margin-top: 18px;
+            padding: 12px;
+            background-color: #e8f5e9;
+            border: 1px solid #81c784;
+            border-radius: 5px;
+            color: #256029;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Event Feedback</h1>
+
+        <form>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter 10 digit phone number" onblur="validatePhone()">
+            <div id="phoneMessage" class="message"></div>
+
+            <label for="eventName">Select Event</label>
+            <select id="eventName" onchange="showEventFee()">
+                <option value="">Choose an event</option>
+                <option value="Community Cleanup" data-fee="Free">Community Cleanup</option>
+                <option value="Food Festival" data-fee="Rs. 250">Food Festival</option>
+                <option value="Music Night" data-fee="Rs. 500">Music Night</option>
+                <option value="Sports Day" data-fee="Rs. 150">Sports Day</option>
+            </select>
+            <div id="feeMessage" class="message"></div>
+
+            <img
+                id="eventImage"
+                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80"
+                alt="People attending an event"
+                ondblclick="enlargeImage()"
+            >
+            <p class="hint">Double-click the image to enlarge it.</p>
+
+            <label for="feedback">Feedback</label>
+            <textarea
+                id="feedback"
+                placeholder="Type your feedback"
+                onkeyup="countCharacters()"
+                onkeydown="countCharacters()"
+            ></textarea>
+            <div id="characterCount" class="message">Characters typed: 0</div>
+
+            <button type="button" onclick="showConfirmation()">Submit Feedback</button>
+            <div id="confirmationMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        function validatePhone() {
+            const phone = document.getElementById("phone").value;
+            const phoneMessage = document.getElementById("phoneMessage");
+            const phonePattern = /^[0-9]{10}$/;
+
+            if (phonePattern.test(phone)) {
+                phoneMessage.textContent = "Valid phone number.";
+                phoneMessage.className = "message success";
+            } else {
+                phoneMessage.textContent = "Please enter a valid 10 digit phone number.";
+                phoneMessage.className = "message error";
+            }
+        }
+
+        function showEventFee() {
+            const eventName = document.getElementById("eventName");
+            const selectedOption = eventName.options[eventName.selectedIndex];
+            const feeMessage = document.getElementById("feeMessage");
+
+            if (eventName.value === "") {
+                feeMessage.textContent = "";
+            } else {
+                feeMessage.textContent = "Selected event fee: " + selectedOption.dataset.fee;
+                feeMessage.className = "message success";
+            }
+        }
+
+        function showConfirmation() {
+            const confirmationMessage = document.getElementById("confirmationMessage");
+            confirmationMessage.textContent = "Thank you! Your feedback has been submitted successfully.";
+            confirmationMessage.style.display = "block";
+        }
+
+        function enlargeImage() {
+            const eventImage = document.getElementById("eventImage");
+            eventImage.classList.toggle("enlarged");
+        }
+
+        function countCharacters() {
+            const feedback = document.getElementById("feedback").value;
+            document.getElementById("characterCount").textContent = "Characters typed: " + feedback.length;
+        }
+    </script>
+</body>
+</html>
