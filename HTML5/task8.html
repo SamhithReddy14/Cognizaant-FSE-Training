@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saving User Preferences</title>
+</head>
+<body onload="loadPreference()">
+    <h1>Event Preferences</h1>
+
+    <label for="eventType">Preferred Event Type:</label>
+    <select id="eventType" onchange="savePreference()">
+        <option value="">Select event type</option>
+        <option value="Community Cleanup">Community Cleanup</option>
+        <option value="Food Festival">Food Festival</option>
+        <option value="Music Night">Music Night</option>
+        <option value="Sports Day">Sports Day</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="clearPreferences()">Clear Preferences</button>
+
+    <p id="message"></p>
+
+    <script>
+        function savePreference() {
+            const selectedEvent = document.getElementById("eventType").value;
+
+            localStorage.setItem("preferredEvent", selectedEvent);
+            sessionStorage.setItem("lastSelectedEvent", selectedEvent);
+
+            document.getElementById("message").innerHTML = "Preference saved.";
+        }
+
+        function loadPreference() {
+            const savedEvent = localStorage.getItem("preferredEvent");
+
+            if (savedEvent) {
+                document.getElementById("eventType").value = savedEvent;
+                document.getElementById("message").innerHTML = "Saved preference loaded.";
+            }
+        }
+
+        function clearPreferences() {
+            localStorage.clear();
+            sessionStorage.clear();
+
+            document.getElementById("eventType").value = "";
+            document.getElementById("message").innerHTML = "Preferences cleared.";
+        }
+    </script>
+</body>
+</html>
