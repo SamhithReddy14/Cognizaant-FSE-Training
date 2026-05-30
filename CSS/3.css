@@ -1,0 +1,45 @@
+/* Universal selector reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f7f9;
+    color: #243447;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ID selector for the banner */
+#mainHeader {
+    background-color: #26547c;
+    color: #ffffff;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Element selector for all h2 elements */
+h2 {
+    color: #1b4965;
+    margin: 28px auto 16px;
+    max-width: 760px;
+}
+
+/* Class selector for event containers */
+.eventCard {
+    background-color: #ffffff;
+    border: 1px solid #d7dee7;
+    border-radius: 8px;
+    margin: 16px auto;
+    max-width: 760px;
+    padding: 20px;
+}
+
+/* Grouping selector for shared text styling */
+h3,
+p {
+    letter-spacing: 0;
+    margin-bottom: 8px;
+}

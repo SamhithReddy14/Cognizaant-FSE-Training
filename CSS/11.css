@@ -1,0 +1,41 @@
+body {
+    background-color: #eef2f6;
+    color: #1f2933;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 32px;
+}
+
+.debug-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 920px;
+}
+
+.panel {
+    background-color: #ffffff;
+    border: 2px solid #8aa1b4;
+    border-radius: 8px;
+    flex: 1 1 320px;
+    padding: 22px;
+}
+
+.status-panel {
+    border-color: #2a9d8f;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    .debug-layout {
+        display: block;
+    }
+
+    .panel {
+        margin-bottom: 16px;
+    }
+}

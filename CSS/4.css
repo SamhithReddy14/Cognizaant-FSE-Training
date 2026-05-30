@@ -1,0 +1,35 @@
+body {
+    background-color: #edf4ef;
+    background-image:
+        linear-gradient(rgba(237, 244, 239, 0.85), rgba(237, 244, 239, 0.85)),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Crect width='160' height='160' fill='%23d9ebe0'/%3E%3Ccircle cx='32' cy='38' r='18' fill='%2397c6a3'/%3E%3Ccircle cx='118' cy='92' r='24' fill='%23f0b66f'/%3E%3Cpath d='M0 135 C45 110 80 150 160 118 L160 160 L0 160 Z' fill='%2379a6c9'/%3E%3C/svg%3E");
+    color: #20332a;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.page-shell {
+    margin: 0 auto;
+    max-width: 760px;
+    padding: 40px 20px;
+}
+
+section {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(32, 51, 42, 0.15);
+    border-radius: 8px;
+    margin-bottom: 22px;
+    overflow: hidden;
+}
+
+h2 {
+    background: linear-gradient(90deg, #1b4965, #2a9d8f);
+    color: #ffffff;
+    margin: 0;
+    padding: 16px;
+}
+
+p {
+    color: #31473d;
+    padding: 18px;
+}

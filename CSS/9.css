@@ -1,0 +1,26 @@
+body {
+    background-color: #fbfbf7;
+    color: #2f3437;
+    font-family: Georgia, serif;
+    margin: 0;
+    padding: 36px;
+}
+
+.news-article {
+    background-color: #ffffff;
+    border: 1px solid #d6d2c4;
+    margin: 0 auto;
+    max-width: 850px;
+    padding: 28px;
+}
+
+.news-article h1 {
+    column-span: all;
+    font-family: Arial, sans-serif;
+}
+
+.news-article {
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 1px solid gray;
+}

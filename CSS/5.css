@@ -1,0 +1,37 @@
+body {
+    background-color: #f7f8fb;
+    color: #273043;
+    font-family: "Poppins", Arial, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+.typography-demo {
+    margin: 0 auto;
+    max-width: 760px;
+}
+
+h1 {
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.lead {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.description {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.8;
+    text-align: justify;
+}

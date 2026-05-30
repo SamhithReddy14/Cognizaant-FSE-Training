@@ -1,0 +1,36 @@
+body {
+    background-color: #f6f2ec;
+    color: #2d2a26;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 30px;
+}
+
+.eventCard {
+    background-color: #ffffff;
+    border: 3px solid #457b9d;
+    border-radius: 8px;
+    margin: 30px auto;
+    max-width: 650px;
+    padding: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.selected-field {
+    border: 1px solid #9aa6b2;
+    outline: 3px solid #f4a261;
+    padding: 10px;
+    width: 100%;
+}
+
+.hidden-box {
+    visibility: hidden;
+}
+
+.none-box {
+    display: none;
+}
