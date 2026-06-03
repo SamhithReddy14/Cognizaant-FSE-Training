@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 11 - Forms</title>
+</head>
+<body>
+  <h1>Event Registration Form</h1>
+  <form id="registrationForm">
+    <input name="userName" placeholder="Name">
+    <span id="nameError"></span>
+    <br>
+    <input name="email" placeholder="Email">
+    <span id="emailError"></span>
+    <br>
+    <select name="eventName">
+      <option value="">Select Event</option>
+      <option value="Music Night">Music Night</option>
+      <option value="Food Festival">Food Festival</option>
+    </select>
+    <span id="eventError"></span>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="message"></p>
+
+  <script src="main.js"></script>
+</body>
+</html>

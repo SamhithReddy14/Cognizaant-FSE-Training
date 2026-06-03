@@ -1,0 +1,5 @@
+[
+  { "name": "Music Night", "category": "Music", "seats": 6 },
+  { "name": "Food Festival", "category": "Food", "seats": 8 },
+  { "name": "Art Workshop", "category": "Workshop", "seats": 5 }
+]
